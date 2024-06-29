@@ -1,5 +1,6 @@
 import pygame
 from graphics.start_screen import StartScreen
+from simulation.city import City
 
 pygame.init()
 
@@ -24,7 +25,10 @@ while running:
     start_screen.run()
 
     if not start_screen.running:
+        city = City(SCREEN_WIDTH, SCREEN_HEIGHT)
         screen.fill(BLACK)
+
+        city.draw(screen)
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
