@@ -1,7 +1,6 @@
 import pygame
 import sys
 
-
 class StartScreen:
     def __init__(self, width, height):
         self.width = width

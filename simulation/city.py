@@ -42,14 +42,53 @@ class City:
             pygame.Rect(120, 90, 20, 20),
             pygame.Rect(60, 115, 20, 20),
             pygame.Rect(120, 115, 20, 20),
+            pygame.Rect(270, 65, 20, 25),
+            pygame.Rect(270, 115, 20, 25),
+            pygame.Rect(210, 115, 20, 25),
+            pygame.Rect(210, 215, 20, 20),
+            pygame.Rect(245, 215, 20, 20),
+            pygame.Rect(210, 240, 20, 20),
+            pygame.Rect(245, 240, 20, 20),
+            pygame.Rect(210, 265, 20, 20),
+            pygame.Rect(10, 200, 20, 25),
+            pygame.Rect(40, 200, 20, 25),
+            pygame.Rect(10, 233, 20, 25),
+            pygame.Rect(40, 233, 20, 25),
+            pygame.Rect(10, 266, 20, 25),
+            pygame.Rect(7, 515, 20, 25),
+            pygame.Rect(150, 405, 30, 20),
+            pygame.Rect(110, 405, 30, 20),
+            pygame.Rect(190, 405, 30, 20),
+            pygame.Rect(110, 435, 30, 20),
+            pygame.Rect(150, 435, 30, 20),
+            pygame.Rect(305, 410, 20, 20),
+            pygame.Rect(335, 410, 20, 20),
+            pygame.Rect(365, 410, 20, 20),
+            pygame.Rect(305, 440, 20, 20),
+            pygame.Rect(335, 440, 20, 20),
+            pygame.Rect(365, 440, 20, 20),
+            pygame.Rect(335, 470, 20, 20),
+            pygame.Rect(365, 470, 20, 20),
         ]
 
         self.doors = [
-            pygame.Rect(92.7, 115, 15, 35)
+            pygame.Rect(92.7, 115, 15, 35),
+            pygame.Rect(243, 115, 15, 35),
+            pygame.Rect(248, 275, 15, 35),
+            pygame.Rect(43, 265, 15, 35),
+            pygame.Rect(37, 515, 15, 35),
+            pygame.Rect(190, 435, 30, 30),
+            pygame.Rect(308, 465, 15, 35),
         ]
 
         self.knobs = [
-            pygame.Rect(100, 130, 3, 3)
+            pygame.Rect(100, 130, 3, 3),
+            pygame.Rect(251, 130, 3, 3),
+            pygame.Rect(256, 290, 3, 3),
+            pygame.Rect(51, 281, 3, 3),
+            pygame.Rect(47, 530, 3, 3),
+            pygame.Rect(210, 450, 3, 3),
+            pygame.Rect(318, 480, 3, 3),
         ]
 
         self.square = [
