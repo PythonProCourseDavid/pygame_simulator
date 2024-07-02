@@ -1,6 +1,7 @@
 import pygame
 from graphics.start_screen import StartScreen
 from simulation.city import City
+from simulation import Person, Population, Infection
 
 pygame.init()
 
@@ -26,15 +27,32 @@ while running:
 
     if not start_screen.running:
         city = City(SCREEN_WIDTH, SCREEN_HEIGHT)
-        screen.fill(BLACK)
+        population = Population(SCREEN_WIDTH, SCREEN_HEIGHT, city)
+        infection = Infection(population)
 
-        city.draw(screen)
+        while running:
+            screen.fill(WHITE)
 
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            running = False
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    running = False
 
-    pygame.display.flip()
-    clock.tick(60)
+            population.update()
+            infection.update()
+
+            city.draw(screen)
+            population.draw(screen)
+
+            if population.get_infected_count() == len(population.people):
+                blurred_interface = pygame.Surface((SCREEN_WIDTH, SCREEN_HEIGHT))
+                blurred_interface.set_alpha(150)
+                blurred_interface.fill(WHITE)
+
+                pygame.display.flip()
+                pygame.time.wait(3000)
+                running = False
+
+            pygame.display.flip()
+            clock.tick(30)
 
 pygame.quit()
