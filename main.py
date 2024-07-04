@@ -2,6 +2,7 @@ import pygame
 from graphics.start_screen import StartScreen
 from simulation.city import City
 from simulation import Person, Population, Infection
+from graphics import UserInterface
 
 pygame.init()
 
@@ -29,6 +30,7 @@ while running:
         city = City(SCREEN_WIDTH, SCREEN_HEIGHT)
         population = Population(SCREEN_WIDTH, SCREEN_HEIGHT, city)
         infection = Infection(population)
+        ui = UserInterface(SCREEN_WIDTH, SCREEN_HEIGHT, population, infection)
 
         while running:
             screen.fill(WHITE)
@@ -42,11 +44,17 @@ while running:
 
             city.draw(screen)
             population.draw(screen)
+            ui.draw(screen)
 
             if population.get_infected_count() == len(population.people):
-                blurred_interface = pygame.Surface((SCREEN_WIDTH, SCREEN_HEIGHT))
-                blurred_interface.set_alpha(150)
-                blurred_interface.fill(WHITE)
+                blurred_surface = pygame.Surface((SCREEN_WIDTH, SCREEN_HEIGHT))
+                blurred_surface.set_alpha(150)
+                blurred_surface.fill((255, 255, 255))
+                screen.blit(blurred_surface, (0, 0))
+
+                text = ui.font.render("All infected!. Game over. ", True, BLACK)
+                screen.blit(text, (SCREEN_WIDTH // 2 - text.get_width() // 2, SCREEN_HEIGHT // 2
+                                   - text.get_height() // 2))
 
                 pygame.display.flip()
                 pygame.time.wait(3000)
